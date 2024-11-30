@@ -30,28 +30,28 @@
                             <div>
                                 <label for="hs-name-contacts-1" class="sr-only">Name</label>
                                 <input type="text" name="hs-name-contacts-1" id="hs-name-contacts-1" required
-                                    class="py-3 px-4 block w-full border rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                                    class="text-base py-3 px-4 block w-full border rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                     placeholder="What's your name?">
                             </div>
                             <div>
                                 <label for="hs-email-contacts-1" class="sr-only">Email</label>
                                 <input type="email" name="hs-email-contacts-1" id="hs-email-contacts-1" required
                                     autocomplete="email"
-                                    class="py-3 px-4 block w-full border rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                                    class="text-base py-3 px-4 block w-full border rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                     placeholder="your.email@example.com">
                             </div>
 
                             <div>
                                 <label for="hs-phone-number-1" class="sr-only">Phone Number</label>
                                 <input type="text" name="hs-phone-number-1" id="hs-phone-number-1"
-                                    class="py-3 px-4 block w-full border rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                                    class="text-base py-3 px-4 block w-full border rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                     placeholder="Your phone number (optional)">
                             </div>
 
                             <div>
                                 <label for="hs-about-contacts-1" class="sr-only">Message</label>
                                 <textarea id="hs-about-contacts-1" name="hs-about-contacts-1" rows="4" required
-                                    class="py-3 px-4 block w-full border rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                                    class="text-base py-3 px-4 block w-full border rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                     placeholder="Tell me about your project..."></textarea>
                             </div>
                         </div>
@@ -73,75 +73,99 @@
                 <!-- End Form Card -->
 
                 {{-- Contact Information --}}
-<div class="divide-y divide-gray-200 dark:divide-neutral-800" data-aos="fade-left">
-    <!-- Phone Block -->
-    <div class="flex gap-x-7 py-6">
-        <div class="flex size-12 rounded-lg bg-gray-100 text-blue-600 dark:bg-neutral-800 dark:text-blue-500 items-center justify-center">
-            <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-            </svg>
-        </div>
-        <div class="grow">
-            <h3 class="font-semibold text-gray-800 dark:text-neutral-200">Let's Talk</h3>
-            <p class="mt-1 text-sm text-gray-500 dark:text-neutral-500">Call me directly for quick inquiries or urgent matters.</p>
-            <a class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300" href="tel:{{ $contact->hp }}">
-                {{ $contact->hp }}
-            </a>
-        </div>
-    </div>
+                <div class="divide-y divide-gray-200 dark:divide-neutral-800" data-aos="fade-left">
+                    <!-- Phone Block -->
+                    <div class="flex gap-x-7 py-6">
+                        <div
+                            class="flex size-12 rounded-lg bg-gray-100 text-blue-600 dark:bg-neutral-800 dark:text-blue-500 items-center justify-center">
+                            <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                        </div>
+                        <div class="grow">
+                            <h3 class="font-semibold text-gray-800 dark:text-neutral-200">Let's Talk</h3>
+                            <p class="mt-1 text-sm text-gray-500 dark:text-neutral-500">Call me directly for quick inquiries
+                                or urgent matters.</p>
+                            <a class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300"
+                                href="tel:{{ $contact->hp }}">
+                                {{ $contact->hp }}
+                            </a>
+                        </div>
+                    </div>
 
-    <!-- Location Block -->
-    <div class="flex gap-x-7 py-6">
-        <div class="flex size-12 rounded-lg bg-gray-100 text-blue-600 dark:bg-neutral-800 dark:text-blue-500 items-center justify-center">
-            <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                <circle cx="12" cy="10" r="3"/>
-            </svg>
-        </div>
-        <div class="grow">
-            <h3 class="font-semibold text-gray-800 dark:text-neutral-200">Location</h3>
-            <p class="mt-1 text-sm text-gray-500 dark:text-neutral-500">Based in {{ $contact->location }}</p>
-            <p class="mt-1 text-sm text-gray-500 dark:text-neutral-500">Available for remote work worldwide</p>
-        </div>
-    </div>
+                    <!-- Location Block -->
+                    <div class="flex gap-x-7 py-6">
+                        <div
+                            class="flex size-12 rounded-lg bg-gray-100 text-blue-600 dark:bg-neutral-800 dark:text-blue-500 items-center justify-center">
+                            <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                        </div>
+                        <div class="grow">
+                            <h3 class="font-semibold text-gray-800 dark:text-neutral-200">Location</h3>
+                            <p class="mt-1 text-sm text-gray-500 dark:text-neutral-500">Based in {{ $contact->location }}
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500 dark:text-neutral-500">Available for remote work worldwide
+                            </p>
+                        </div>
+                    </div>
 
-    <!-- WhatsApp Block -->
-    <div class="flex gap-x-7 py-6">
-        <div class="flex size-12 rounded-lg bg-gray-100 text-blue-600 dark:bg-neutral-800 dark:text-blue-500 items-center justify-center">
-            <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 21l1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/>
-            </svg>
-        </div>
-        <div class="grow">
-            <h3 class="font-semibold text-gray-800 dark:text-neutral-200">WhatsApp Me</h3>
-            <p class="mt-1 text-sm text-gray-500 dark:text-neutral-500">Prefer chat? I'm just a message away.</p>
-            <a class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-green-600 hover:text-green-800 dark:text-green-500 dark:hover:text-green-400" href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $contact->whatsapp) }}" target="_blank">
-                Message on WhatsApp
-                <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M7 7h10v10"/>
-                    <path d="M7 17 17 7"/>
-                </svg>
-            </a>
-        </div>
-    </div>
+                    <!-- WhatsApp Block -->
+                    <div class="flex gap-x-7 py-6">
+                        <div
+                            class="flex size-12 rounded-lg bg-gray-100 text-blue-600 dark:bg-neutral-800 dark:text-blue-500 items-center justify-center">
+                            <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 21l1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" />
+                            </svg>
+                        </div>
+                        <div class="grow">
+                            <h3 class="font-semibold text-gray-800 dark:text-neutral-200">WhatsApp Me</h3>
+                            <p class="mt-1 text-sm text-gray-500 dark:text-neutral-500">Prefer chat? I'm just a message
+                                away.</p>
+                            <a class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-green-600 hover:text-green-800 dark:text-green-500 dark:hover:text-green-400"
+                                href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $contact->whatsapp) }}"
+                                target="_blank">
+                                Message on WhatsApp
+                                <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M7 7h10v10" />
+                                    <path d="M7 17 17 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
 
-    <!-- Email Block -->
-    <div class="flex gap-x-7 py-6">
-        <div class="flex size-12 rounded-lg bg-gray-100 text-blue-600 dark:bg-neutral-800 dark:text-blue-500 items-center justify-center">
-            <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="20" height="16" x="2" y="4" rx="2"/>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-            </svg>
-        </div>
-        <div class="grow">
-            <h3 class="font-semibold text-gray-800 dark:text-neutral-200">Email Me</h3>
-            <p class="mt-1 text-sm text-gray-500 dark:text-neutral-500">For detailed inquiries and professional correspondence</p>
-            <a class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300" href="mailto:{{ $contact->email }}">
-                {{ $contact->email }}
-            </a>
-        </div>
-    </div>
-</div>
+                    <!-- Email Block -->
+                    <div class="flex gap-x-7 py-6">
+                        <div
+                            class="flex size-12 rounded-lg bg-gray-100 text-blue-600 dark:bg-neutral-800 dark:text-blue-500 items-center justify-center">
+                            <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="16" x="2" y="4" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg>
+                        </div>
+                        <div class="grow">
+                            <h3 class="font-semibold text-gray-800 dark:text-neutral-200">Email Me</h3>
+                            <p class="mt-1 text-sm text-gray-500 dark:text-neutral-500">For detailed inquiries and
+                                professional correspondence</p>
+                            <a class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300"
+                                href="mailto:{{ $contact->email }}">
+                                {{ $contact->email }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
