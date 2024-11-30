@@ -1,3 +1,7 @@
+@php
+    $settings = \App\Models\GeneralSettings::first();
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +11,7 @@
     <title>@yield('title') | anshoria</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('img/logo3.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('storage/' . $settings->logo) }}">
 
     @vite(['resources/css/app.css','resources/js/app.js'])
     
