@@ -56,3 +56,6 @@
     </script>
 </body>
 </html>
+
+
+{{-- perubahan pada nama folder dengan Layouts menjadi layouts --}}
