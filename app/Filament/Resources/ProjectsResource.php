@@ -108,6 +108,8 @@ class ProjectsResource extends Resource
                                 '4:3',
                                 '1:1',
                             ])
+                            ->imageResizeTargetWidth('1920') // Add this
+                            ->imageResizeTargetHeight('1080')
                             ->columnSpanFull(),
                     ])->columns(2)
             ]);

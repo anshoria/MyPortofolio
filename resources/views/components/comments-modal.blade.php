@@ -42,14 +42,14 @@
                                 <label for="comment-name"
                                     class="block text-sm font-medium mb-2 dark:text-white">Name</label>
                                 <input type="text" id="comment-name" name="name" required
-                                    class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                                    placeholder="Your name">
+                                    class="py-3 px-4 block text-base w-full border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                                    placeholder="Your name" style="font-size: 16px;">
                             </div>
                             <div class="mb-4">
                                 <label for="comment-text"
                                     class="block text-sm font-medium mb-2 dark:text-white">Comment</label>
                                 <textarea id="comment-text" name="comment" required rows="3"
-                                    class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                                    class="text-base py-3 px-4 block w-full border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
                                     placeholder="Leave your comment here..."></textarea>
                             </div>
                             <div class="flex justify-end">
@@ -124,14 +124,14 @@
                                                         <label
                                                             class="block text-sm font-medium mb-2 dark:text-white">Name</label>
                                                         <input type="text" name="name" required
-                                                            class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                                                            class="text-base py-2 px-3 block w-full border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                                                             placeholder="Your name">
                                                     </div>
                                                     <div class="mb-4">
                                                         <label
                                                             class="block text-sm font-medium mb-2 dark:text-white">Reply</label>
                                                         <textarea name="comment" required rows="3"
-                                                            class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                                                            class="text-base py-2 px-3 block w-full border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                                                             placeholder="Write your reply..."></textarea>
                                                     </div>
                                                     <div class="flex justify-end gap-x-2">
@@ -404,13 +404,13 @@
                                     <div class="mb-4">
                                         <label class="block text-sm font-medium mb-2 dark:text-white">Name</label>
                                         <input type="text" name="name" required
-                                            class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                                            class="text-base py-2 px-3 block w-full border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                                             placeholder="Your name">
                                     </div>
                                     <div class="mb-4">
                                         <label class="block text-sm font-medium mb-2 dark:text-white">Reply</label>
                                         <textarea name="comment" required rows="3"
-                                            class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                                            class="text-base py-2 px-3 block w-full border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                                             placeholder="Write your reply..."></textarea>
                                     </div>
                                     <div class="flex justify-end gap-x-2">

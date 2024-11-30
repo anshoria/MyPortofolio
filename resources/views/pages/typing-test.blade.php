@@ -418,22 +418,27 @@
                     return indonesianQuotes;
                 }
 
-                const params = new URLSearchParams({
-                    limit: '10',
-                    minLength: '100',
-                    maxLength: '100',
-                    tags: 'famous-quotes,technology,wisdom'
-                });
+                const apiUrl = 'https://api.api-ninjas.com/v1/quotes';
+                const options = {
+                    method: 'GET',
+                    headers: {
+                        'X-Api-Key': 'NVMjFbFUtEUpwqR2+HVasQ==xkkcC0X3608vdtqx',
+                        'Content-Type': 'application/json'
+                    },
+                    params: {
+                        limit: 10,
+                        category: 'inspirational,famous,wisdom,humor'
+                    }
+                };
 
-                const apiUrl = `https://api.quotable.io/quotes/random?${params}`;
-                const response = await fetch(apiUrl);
+                const response = await fetch(apiUrl, options);
 
                 if (!response.ok) {
                     throw new Error('Failed to fetch quotes');
                 }
 
                 const data = await response.json();
-                return data.map(quote => `${quote.content} - ${quote.author}`);
+                return data.map(quote => `${quote.quote} - ${quote.author}`);
             } catch (error) {
                 console.error('Error fetching quotes:', error);
                 return language === 'id' ? indonesianQuotes : [];
