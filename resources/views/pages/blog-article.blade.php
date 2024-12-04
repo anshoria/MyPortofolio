@@ -31,6 +31,19 @@
                             </p>
                         </div>
 
+                        <!-- Blog Cover Image -->
+                        <div class="relative rounded-xl overflow-hidden shadow-sm">
+                            <!-- Preload Skeleton -->
+                            <div class="absolute inset-0 animate-pulse bg-gray-200 dark:bg-gray-700" 
+                                id="skeleton-cover-{{ $blog->id }}"></div>
+                            
+                            <img class="w-full aspect-video object-cover opacity-0"
+                                src="{{ asset('storage/' . $blog->cover_img) }}"
+                                alt="{{ $blog->title }}"
+                                loading="lazy"
+                                onload="this.classList.remove('opacity-0'); document.getElementById('skeleton-cover-{{ $blog->id }}').style.display = 'none';">
+                        </div>
+
                         <div class="prose max-w-none dark:prose-invert dark:text-gray-300">
                             {!! $blog->content !!}
                         </div>
@@ -113,6 +126,30 @@
                             </a>
                             <!-- End Media -->
                         @endforeach
+                    </div>
+
+                    <!-- Share Section -->
+                    <div class="mt-8">
+                        <div
+                            class="bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-slate-900 dark:border-gray-700">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">
+                                    Share blog
+                                </h3>
+                                <div class="flex gap-2">
+                                    <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->url()) }}&text={{ urlencode($blog->title) }}"
+                                        target="_blank"
+                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-lg font-medium bg-gray-50 text-gray-700 shadow-sm align-middle hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800">
+                                        <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                        </svg>
+                                        Share
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

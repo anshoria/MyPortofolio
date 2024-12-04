@@ -35,4 +35,13 @@ return [
         ],
     ],
 
+    'fonnte' => [
+        'token' => env('FONNTE_TOKEN'),
+        'phone' => env('FONNTE_PHONE_TARGET'),
+    ],
+
+    'api_ninja' => [
+        'key' => env('API_NINJA_KEY'),
+    ],
+
 ];

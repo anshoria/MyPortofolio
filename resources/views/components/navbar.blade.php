@@ -13,7 +13,7 @@
                 <a class="group sm:hidden inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-700 hover:to-blue-700 hover:shadow-lg border border-transparent text-white text-sm font-medium rounded-full py-2 px-4 dark:focus:ring-offset-gray-800"
                     href="/contact">
                     Hire Me!
-                </a>
+                </a>    
                 <!-- Di bagian button navbar -->
                 <button id="darkModeToggle2"
                     class="flex sm:hidden items-center justify-center w-10 h-10 rounded-lg transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 mx-auto sm:mx-0">
@@ -62,6 +62,9 @@
                  
                  <a class="font-medium relative hover:text-blue-500 dark:hover:text-blue-500 {{ request()->routeIs('blog.index') ? 'text-blue-500 sm:after:absolute sm:after:w-full sm:after:h-0.5 sm:after:bg-blue-500 sm:after:bottom-0 sm:after:left-0' : 'text-gray-600' }} text-center sm:text-left py-2"
                     href="{{ route('blog.index') }}">Blog</a>
+                 
+                 <a class="font-medium relative hover:text-blue-500 dark:hover:text-blue-500 {{ request()->routeIs('katalog') ? 'text-blue-500 sm:after:absolute sm:after:w-full sm:after:h-0.5 sm:after:bg-blue-500 sm:after:bottom-0 sm:after:left-0' : 'text-gray-600' }} text-center sm:text-left py-2"
+                    href="{{ route('katalog') }}">Katalog</a>
                  
                  <a class="font-medium relative hover:text-blue-500 dark:hover:text-blue-500 {{ request()->routeIs('contact') ? 'text-blue-500 sm:after:absolute sm:after:w-full sm:after:h-0.5 sm:after:bg-blue-500 sm:after:bottom-0 sm:after:left-0' : 'text-gray-600' }} text-center sm:text-left py-2"
                     href="{{ route('contact') }}">Contact</a>

@@ -29,13 +29,13 @@
                         <div class="grid gap-4">
                             <div>
                                 <label for="hs-name-contacts-1" class="sr-only">Name</label>
-                                <input type="text" name="hs-name-contacts-1" id="hs-name-contacts-1" required
+                                <input type="text" name="name" id="hs-name-contacts-1" required
                                     class="text-base py-3 px-4 block w-full border rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                     placeholder="What's your name?">
                             </div>
                             <div>
                                 <label for="hs-email-contacts-1" class="sr-only">Email</label>
-                                <input type="email" name="hs-email-contacts-1" id="hs-email-contacts-1" required
+                                <input type="email" name="email" id="hs-email-contacts-1" required
                                     autocomplete="email"
                                     class="text-base py-3 px-4 block w-full border rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                     placeholder="your.email@example.com">
@@ -43,14 +43,14 @@
 
                             <div>
                                 <label for="hs-phone-number-1" class="sr-only">Phone Number</label>
-                                <input type="text" name="hs-phone-number-1" id="hs-phone-number-1"
+                                <input type="text" name="nohp" id="hs-phone-number-1"
                                     class="text-base py-3 px-4 block w-full border rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                     placeholder="Your phone number (optional)">
                             </div>
 
                             <div>
                                 <label for="hs-about-contacts-1" class="sr-only">Message</label>
-                                <textarea id="hs-about-contacts-1" name="hs-about-contacts-1" rows="4" required
+                                <textarea id="hs-about-contacts-1" name="pesan" rows="4" required
                                     class="text-base py-3 px-4 block w-full border rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                     placeholder="Tell me about your project..."></textarea>
                             </div>

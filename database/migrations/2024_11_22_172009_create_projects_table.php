@@ -14,10 +14,15 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->text('description'); //string to text
             $table->string('category');
             $table->string('url')->nullable();
             $table->string('image');
+            $table->string('year');
+            $table->boolean('is_featured')->default(false); //penambahan
+            $table->boolean('is_catalog')->default(false); //penambahan
+            $table->integer('price')->nullable(); //penambahan
+            $table->string('catalog_img')->nullable(); //penambahan
             $table->timestamps();
         });
     }

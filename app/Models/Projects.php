@@ -11,6 +11,11 @@ class Projects extends Model
         'description',
         'category',
         'url',
-        'image'
+        'image',
+        'year',
+        'is_featured',
+        'is_catalog',
+        'price',
+        'catalog_img',
     ];
 }

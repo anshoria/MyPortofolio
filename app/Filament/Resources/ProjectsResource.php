@@ -13,9 +13,12 @@ use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\ToggleColumn;
 
 class ProjectsResource extends Resource
 {
@@ -50,6 +53,8 @@ class ProjectsResource extends Resource
             'description',
             'category',
             'url',
+            'year',
+            'price',
         ];
     }
 
@@ -81,22 +86,26 @@ class ProjectsResource extends Resource
                             ])
                             ->searchable(),
 
+                        TextInput::make('year')
+                            ->required()
+                            ->maxLength(4)
+                            ->placeholder('YYYY'),
 
                         TextInput::make('url')
                             ->label('Project URL')
                             ->url()
                             ->maxLength(255)
                             ->placeholder('https://example.com')
-                            ->suffixIcon('heroicon-m-globe-alt')
-                            ->columnSpanFull(),
+                            ->suffixIcon('heroicon-m-globe-alt'),
 
-                        Textarea::make('description')
-                            ->required()
-                            ->rows(3)
-                            ->maxLength(180)
-                            ->placeholder('Brief description of your project')
-                            ->columnSpanFull(),
+                        TextInput::make('price')
+                            ->label('Project Price')
+                            ->placeholder('Enter price')
+                            ->maxLength(255),
+                    ])->columns(2),
 
+                Forms\Components\Section::make('Project Media')
+                    ->schema([
                         FileUpload::make('image')
                             ->image()
                             ->required()
@@ -108,10 +117,57 @@ class ProjectsResource extends Resource
                                 '4:3',
                                 '1:1',
                             ])
-                            ->imageResizeTargetWidth('1920') // Add this
-                            ->imageResizeTargetHeight('1080')
-                            ->columnSpanFull(),
-                    ])->columns(2)
+                            ->imageResizeTargetWidth('1920')
+                            ->imageResizeTargetHeight('1080'),
+
+                        FileUpload::make('catalog_img')
+                            ->label('Catalog Image')
+                            ->image()
+                            ->disk('public')
+                            ->directory('catalogs')
+                            ->imageEditor()
+                            ->imageEditorAspectRatios([
+                                '16:9',
+                                '4:3',
+                                '1:1',
+                            ]),
+                    ])->columns(2),
+
+                Forms\Components\Section::make('Project Description')
+                    ->schema([
+                        RichEditor::make('description')
+                            ->required()
+                            ->fileAttachmentsDisk('public')
+                            ->fileAttachmentsDirectory('attachments')
+                            ->toolbarButtons([
+                                'attachFiles',
+                                'blockquote',
+                                'bold',
+                                'bulletList',
+                                'codeBlock',
+                                'h2',
+                                'h3',
+                                'italic',
+                                'link',
+                                'orderedList',
+                                'redo',
+                                'strike',
+                                'underline',
+                                'undo',
+                            ])
+                            ->placeholder('Brief description of your project'),
+                    ]),
+
+                Forms\Components\Section::make('Project Settings')
+                    ->schema([
+                        Toggle::make('is_featured')
+                            ->label('Featured Project')
+                            ->helperText('Display this project in featured section'),
+
+                        Toggle::make('is_catalog')
+                            ->label('Show in Catalog')
+                            ->helperText('Make this project available in the catalog'),
+                    ])->columns(2),
             ]);
     }
 
@@ -143,12 +199,27 @@ class ProjectsResource extends Resource
                         default => 'gray',
                     }),
 
+                TextColumn::make('year')
+                    ->sortable(),
+
+                TextColumn::make('price')
+                    ->toggleable(),
+
+                ToggleColumn::make('is_featured')
+                    ->label('Featured')
+                    ->toggleable(),
+
+                ToggleColumn::make('is_catalog')
+                    ->label('Catalog')
+                    ->toggleable(),
+
                 TextColumn::make('url')
                     ->label('Link')
                     ->icon('heroicon-m-link')
                     ->copyable()
                     ->openUrlInNewTab()
-                    ->toggleable(),
+                    ->toggleable()
+                    ->toggledHiddenByDefault(),
 
                 TextColumn::make('created_at')
                     ->label('Published')

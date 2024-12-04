@@ -88,11 +88,11 @@
             <!-- Quick Links -->
             <div class="space-x-4 md:text-end">
                 <a class="inline-flex gap-x-2 text-sm text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
-                    href="#">Terms</a>
+                    href="{{ route('about') }}">About</a>
                 <a class="inline-flex gap-x-2 text-sm text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
-                    href="#">Privacy</a>
+                    href="{{ route('katalog') }}">Katalog</a>
                 <a class="inline-flex gap-x-2 text-sm text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
-                    href="#">Contact</a>
+                    href="{{ route('contact') }}">Contact</a>
             </div>
         </div>
     </div>

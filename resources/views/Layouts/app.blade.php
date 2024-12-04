@@ -39,9 +39,13 @@
         <main>
             @yield('content')
         </main>
+
+        
         
         @include('components.footer')
     </div>
+
+    @yield('modal')
     
     @include('components.modal')
     

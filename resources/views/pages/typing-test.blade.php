@@ -418,11 +418,17 @@
                     return indonesianQuotes;
                 }
 
+                window.config = {
+                    apiNinja: {
+                        key: '{{ config('services.api_ninja.key') }}'
+                    }
+                };
+
                 const apiUrl = 'https://api.api-ninjas.com/v1/quotes';
                 const options = {
                     method: 'GET',
                     headers: {
-                        'X-Api-Key': 'NVMjFbFUtEUpwqR2+HVasQ==xkkcC0X3608vdtqx',
+                        'X-Api-Key': window.config.apiNinja.key,
                         'Content-Type': 'application/json'
                     },
                     params: {
