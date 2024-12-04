@@ -138,7 +138,7 @@ class ProjectsResource extends Resource
                         RichEditor::make('description')
                             ->required()
                             ->fileAttachmentsDisk('public')
-                            ->fileAttachmentsDirectory('attachments')
+                            ->fileAttachmentsDirectory('attachments-project')
                             ->toolbarButtons([
                                 'attachFiles',
                                 'blockquote',

@@ -105,10 +105,14 @@ class BlogResource extends Resource
                         RichEditor::make('content')
                             ->required()
                             ->placeholder('Type your contetnt here..')
+                            ->fileAttachmentsDisk('public')
+                            ->fileAttachmentsDirectory('attachments-blog')
                             ->toolbarButtons([
+                                'attachFiles',
                                 'blockquote',
                                 'bold',
                                 'bulletList',
+                                'codeBlock',
                                 'h2',
                                 'h3',
                                 'italic',
@@ -128,6 +132,7 @@ class BlogResource extends Resource
                                 'Technology' => 'Technology',
                                 'Updates' => 'Updates',
                                 'Case Study' => 'Case Study',
+                                'Olahraga' => 'Olahraga',
                             ])
                             ->required()
                             ->native(false)
