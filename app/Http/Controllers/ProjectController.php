@@ -7,10 +7,26 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $projects = Projects::latest()->get();
-        return view('pages.projects', compact('projects'));
+        // Get all unique categories
+        $categories = Projects::distinct('category')->pluck('category')->filter();
+        
+        // Get selected category from query parameter or default to 'all'
+        $selectedCategory = $request->category ?? 'all';
+        
+        // Base query
+        $query = Projects::latest();
+        
+        // Filter by category if not 'all'
+        if ($selectedCategory !== 'all') {
+            $query->where('category', $selectedCategory);
+        }
+        
+        // Get paginated results
+        $projects = $query->paginate(6);
+        
+        return view('pages.projects', compact('projects', 'categories', 'selectedCategory'));
     }
 
     public function show(Projects $project)
