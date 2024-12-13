@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    {{-- <script>
+    <script>
         // Tambahkan di awal <head>
         window.startTime = performance.now();
         
@@ -34,7 +34,7 @@
         // ... component loads ...
         performance.mark('endComponent');
         performance.measure('Component Load Time', 'startComponent', 'endComponent');
-    </script> --}}
+    </script>
     
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

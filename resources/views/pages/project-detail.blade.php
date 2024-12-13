@@ -56,11 +56,6 @@
                             {!! $project->description !!}
                         </div>
 
-                        <!-- Project Content -->
-                        <div class="prose max-w-none dark:prose-invert">
-                            {!! $project->content !!}
-                        </div>
-
                         <!-- Project Images -->
                         @if ($project->images)
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -76,21 +71,6 @@
                                             onload="this.classList.remove('opacity-0'); document.getElementById('skeleton-{{ $index }}-{{ $project->id }}').style.display = 'none';">
                                     </div>
                                 @endforeach
-                            </div>
-                        @endif
-
-                        <!-- Technologies -->
-                        @if ($project->technologies)
-                            <div class="border-t border-gray-200 dark:border-gray-700 pt-8">
-                                <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200 mb-4">Technologies Used</h3>
-                                <div class="flex flex-wrap gap-2">
-                                    @foreach (explode(',', $project->technologies) as $tech)
-                                        <span
-                                            class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300">
-                                            {{ trim($tech) }}
-                                        </span>
-                                    @endforeach
-                                </div>
                             </div>
                         @endif
                     </div>
