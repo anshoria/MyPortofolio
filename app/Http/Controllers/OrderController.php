@@ -22,7 +22,7 @@ class OrderController extends Controller
         ]);
         
         $project = Projects::find($validated['template_id']);
-        $validated['final_price'] = $project->price; // Tambahkan price ke data
+        $validated['final_price'] = $project->final_price; // Tambahkan price ke data
 
         $order = Order::create($validated);
 
