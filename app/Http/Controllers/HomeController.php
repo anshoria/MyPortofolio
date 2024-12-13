@@ -12,7 +12,8 @@ class HomeController extends Controller
     {
         $homepage = Homepage::first();
         $featuredProjects = Projects::where('is_featured', true)->latest()->get();
+        $ctaProject = Projects::where('is_cta', true)->first();
         
-        return view('pages.home', compact('homepage', 'featuredProjects'));
+        return view('pages.home', compact('homepage', 'featuredProjects', 'ctaProject'));
     }
 }

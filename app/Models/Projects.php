@@ -16,6 +16,9 @@ class Projects extends Model
         'is_featured',
         'is_catalog',
         'price',
+        'discount_percentage',
+        'final_price',
+        'is_cta',
         'catalog_img',
     ];
 }

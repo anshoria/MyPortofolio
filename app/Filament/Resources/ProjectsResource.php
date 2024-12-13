@@ -106,6 +106,37 @@ class ProjectsResource extends Resource
                             ->numeric()
                             ->mask(RawJs::make('$money($input)'))
                             ->stripCharacters(','),
+
+                            TextInput::make('discount_percentage')
+                            ->label('Discount (%)')
+                            ->placeholder('Enter discount percentage')
+                            ->numeric()
+                            ->minValue(0)
+                            ->maxValue(100)
+                            ->suffix('%')
+                            ->live(debounce: 1000)
+                            ->afterStateUpdated(function ($state, Forms\Set $set, Forms\Get $get) {
+                                if ($state && $get('price')) {
+                                    $price = (int) str_replace(['Rp', '.', ','], '', $get('price'));
+                                    $discount = (int) $state;
+                                    $finalPrice = $price - ($price * $discount / 100);
+                                    $set('final_price', number_format($finalPrice, 0, '', ''));
+                                }
+                            }),
+                        
+                        TextInput::make('final_price')
+                            ->label('Final Price')
+                            ->disabled()
+                            ->numeric()
+                            ->formatStateUsing(function ($state) {
+                                if ($state) {
+                                    return number_format($state, 0, '', '');
+                                }
+                                return $state;
+                            })
+                            ->dehydrated(true)
+                            ->mask(RawJs::make('$money($input)'))
+                            ->stripCharacters(','),
                     ])->columns(2),
 
                 Forms\Components\Section::make('Project Media')
@@ -171,6 +202,10 @@ class ProjectsResource extends Resource
                         Toggle::make('is_catalog')
                             ->label('Show in Catalog')
                             ->helperText('Make this project available in the catalog'),
+
+                        Toggle::make('is_cta')
+                            ->label('CTA in Homepage')
+                            ->helperText('Display cta in homepage'),
                     ])->columns(2),
             ]);
     }
@@ -217,6 +252,10 @@ class ProjectsResource extends Resource
                     ->label('Catalog')
                     ->toggleable(),
 
+                ToggleColumn::make('is_cta')
+                    ->label('CTA')
+                    ->toggleable(),
+
                 TextColumn::make('url')
                     ->label('Link')
                     ->icon('heroicon-m-link')
@@ -229,7 +268,8 @@ class ProjectsResource extends Resource
                     ->label('Published')
                     ->dateTime('d M Y')
                     ->sortable()
-                    ->toggleable(),
+                    ->toggleable()
+                    ->toggledHiddenByDefault(),
             ])
             ->defaultSort('created_at', 'desc')
             ->filters([

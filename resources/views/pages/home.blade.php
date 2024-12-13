@@ -148,6 +148,54 @@
     </div>
     <!-- End Icon Blocks -->
 
+    @if ($ctaProject)
+        <!-- CTA Section -->
+        <div class="relative overflow-hidden">
+            <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+                <!-- Main Content Container with Background -->
+                <div class="relative z-10 rounded-3xl overflow-hidden" data-aos="fade-up">
+                    <!-- Background Image with Overlay -->
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?q=80&w=2115&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Modern workspace" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-b from-gray-900/80 to-gray-900/90"></div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="relative z-10 p-8 md:p-12">
+                        <div class="max-w-2xl text-center mx-auto">
+                            <!-- Discount Badge -->
+                            <span
+                                class="inline-flex items-center gap-2 py-2 px-4 rounded-full text-sm font-medium bg-blue-600 text-white mb-8">
+                                Opening Sale - {{ $ctaProject->discount_percentage }}% Off
+                            </span>
+
+                            <h2 class="text-2xl font-bold md:text-3xl text-white mb-4">
+                                Get {{ $ctaProject->discount_percentage }}% Off - First Launch Sale
+                            </h2>
+                            <p class="mt-3 text-lg text-gray-300">
+                                Limited time offer on my website templates. Get started today and save big on your next
+                                project!
+                            </p>
+
+                            <!-- CTA Buttons -->
+                            <div class="mt-8 flex justify-center gap-4">
+                                <a class="py-3 px-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300"
+                                    href="{{ route('katalog') }}">
+                                    Get Template
+                                </a>
+                                <a class="py-3 px-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-full bg-white/10 text-white hover:bg-white/20 transition-all duration-300"
+                                    href="{{ route('contact') }}" target="_blank">
+                                    Contact Me
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
 
 
     <!-- Projects Section -->

@@ -22,7 +22,7 @@ class OrderController extends Controller
         ]);
         
         $project = Projects::find($validated['template_id']);
-        $validated['price'] = $project->price; // Tambahkan price ke data
+        $validated['final_price'] = $project->price; // Tambahkan price ke data
 
         $order = Order::create($validated);
 
@@ -60,7 +60,7 @@ class OrderController extends Controller
 
     private function generateMessage($templateName, $data)
     {
-        $price = number_format($data['price'], 0, ',', '.'); // Format price
+        $price = number_format($data['final_price'], 0, ',', '.'); // Format price
         return "🎯 *New Template Order*\n\n" .
                "Template: *{$templateName}*\n" .
                "Price: *Rp{$price}*\n\n" .
