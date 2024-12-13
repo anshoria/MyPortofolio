@@ -16,6 +16,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Toggle;
+use Filament\Support\RawJs;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\ToggleColumn;
@@ -101,7 +102,10 @@ class ProjectsResource extends Resource
                         TextInput::make('price')
                             ->label('Project Price')
                             ->placeholder('Enter price')
-                            ->maxLength(255),
+                            ->maxLength(255)
+                            ->numeric()
+                            ->mask(RawJs::make('$money($input)'))
+                            ->stripCharacters(','),
                     ])->columns(2),
 
                 Forms\Components\Section::make('Project Media')

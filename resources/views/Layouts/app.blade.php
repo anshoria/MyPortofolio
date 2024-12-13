@@ -18,6 +18,23 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    {{-- <script>
+        // Tambahkan di awal <head>
+        window.startTime = performance.now();
+        
+        // Tambahkan di akhir <body>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loadTime = performance.now() - window.startTime;
+            console.log(`Page load time: ${loadTime}ms`);
+        });
+        
+        // Untuk melihat waktu loading komponen spesifik
+        performance.mark('startComponent');
+        // ... component loads ...
+        performance.mark('endComponent');
+        performance.measure('Component Load Time', 'startComponent', 'endComponent');
+    </script> --}}
     
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
