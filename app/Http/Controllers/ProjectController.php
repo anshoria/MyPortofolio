@@ -24,7 +24,7 @@ class ProjectController extends Controller
                 $query->where('category', $selectedCategory);
             }
 
-            return $query->paginate(20);
+            return $query->paginate(6);
         });
 
         return view('pages.projects', compact('projects', 'categories', 'selectedCategory'));

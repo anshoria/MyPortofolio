@@ -19,6 +19,6 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withSchedule(function(Schedule $schedule){
         // Bersihkan cache expired setiap hari jam 00:00
-        $schedule->command('cache:clear')->everySecond();
+        $schedule->command('cache:clear')->daily();
     })
     ->create();
