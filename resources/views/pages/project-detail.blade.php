@@ -110,13 +110,13 @@
                                 <!-- Project Card -->
                                 <a class="group flex items-center gap-x-6"
                                     href="{{ route('projects.show', $relatedProject) }}">
-                                    <div class="grow">
+                                    <div class="grow line-clamp-3">
                                         <span
                                             class="text-sm font-bold text-gray-800 group-hover:text-blue-600 dark:text-gray-200 dark:group-hover:text-blue-500">
                                             {{ $relatedProject->title }}
                                         </span>
                                         <p class="text-sm text-gray-600 dark:text-gray-400">
-                                            {{ Str::limit($relatedProject->description, 60) }}
+                                            {{ strip_tags($relatedProject->description) }}
                                         </p>
                                     </div>
 

@@ -83,8 +83,8 @@
                                     class="text-xl font-semibold text-gray-800 group-hover:text-gray-600 dark:text-neutral-300 dark:group-hover:text-white">
                                     {{ $project->title }}
                                 </h3>
-                                <p class="mt-3 text-gray-600 dark:text-neutral-400">
-                                    {{ Str::limit(strip_tags($project->description), 180) }}
+                                <p class="mt-3 text-gray-600 dark:text-neutral-400 line-clamp-3">
+                                    {{ strip_tags($project->description) }}
                                 </p>
                                 <p
                                     class="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold text-blue-600 dark:text-neutral-200">

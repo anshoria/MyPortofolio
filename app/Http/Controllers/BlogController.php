@@ -5,30 +5,44 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Comments;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class BlogController extends Controller
 {
+    protected $seconds = 86400; // 24 hours in seconds
+
     public function index()
     {
-        $blogs = Blog::latest('published')->paginate(6);
+        $blogs = Cache::remember('blogs_paginated', $this->seconds, function () {
+            return Blog::latest('published')->paginate(6);
+        });
+        
         return view('pages.blog', compact('blogs'));
     }
 
     public function show(Blog $blog)
     {
-        $blogs = Blog::latest()
-            ->where('id', '!=', $blog->id) // Mengabaikan blog saat ini
-            ->take(3)
-            ->get();
+        $relatedBlogs = Cache::remember('blogs_recent', $this->seconds, function () use ($blog) {
+            return Blog::latest()
+                ->where('id', '!=', $blog->id)
+                ->take(3)
+                ->get();
+        });
 
-        $blog->load('comments'); // Memuat relasi komentar
-        return view('pages.blog-article', compact('blog', 'blogs'));
+        $blogWithComments = Cache::remember("blog_{$blog->id}", $this->seconds, function () use ($blog) {
+            return $blog->load('comments');
+        });
+
+        return view('pages.blog-article', [
+            'blog' => $blogWithComments,
+            'blogs' => $relatedBlogs
+        ]);
     }
-
 
     public function like(Blog $blog)
     {
         $blog->increment('likes');
+        Cache::forget("blog_{$blog->id}");
         return response()->json(['likes' => $blog->likes]);
     }
 
@@ -50,22 +64,24 @@ class BlogController extends Controller
 
     public function likeComment(Blog $blog, Comments $comment)
     {
-        // Memastikan komentar memang milik blog ini
         if ($comment->blog_id !== $blog->id) {
             abort(404);
         }
 
         $comment->increment('like');
+        Cache::forget("blog_{$blog->id}_comments");
         return response()->json(['likes' => $comment->like]);
     }
 
     public function comments(Blog $blog)
     {
-        $comments = $blog->comments()
-            ->whereNull('parent_id')  // Hanya ambil parent comments
-            ->with('replies')         // Eager load replies
-            ->latest()
-            ->paginate(5);
+        $comments = Cache::remember("blog_{$blog->id}_comments", $this->seconds, function () use ($blog) {
+            return $blog->comments()
+                ->whereNull('parent_id')
+                ->with('replies')
+                ->latest()
+                ->paginate(5);
+        });
 
         return response()->json($comments);
     }

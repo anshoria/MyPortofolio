@@ -57,13 +57,13 @@
                  <a class="font-medium relative hover:text-blue-500 dark:hover:text-blue-500 {{ request()->routeIs('about') ? 'text-blue-500 sm:after:absolute sm:after:w-full sm:after:h-0.5 sm:after:bg-blue-500 sm:after:bottom-0 sm:after:left-0' : 'text-gray-600' }} text-center sm:text-left py-2"
                     href="{{ route('about') }}">About</a>
                  
-                 <a class="font-medium relative hover:text-blue-500 dark:hover:text-blue-500 {{ request()->routeIs('projects') ? 'text-blue-500 sm:after:absolute sm:after:w-full sm:after:h-0.5 sm:after:bg-blue-500 sm:after:bottom-0 sm:after:left-0' : 'text-gray-600' }} text-center sm:text-left py-2"
+                 <a class="font-medium relative hover:text-blue-500 dark:hover:text-blue-500 {{ request()->routeIs(['projects', 'projects.show']) ? 'text-blue-500 sm:after:absolute sm:after:w-full sm:after:h-0.5 sm:after:bg-blue-500 sm:after:bottom-0 sm:after:left-0' : 'text-gray-600' }} text-center sm:text-left py-2"
                     href="{{ route('projects') }}">Projects</a>
                  
-                 <a class="font-medium relative hover:text-blue-500 dark:hover:text-blue-500 {{ request()->routeIs('blog.index') ? 'text-blue-500 sm:after:absolute sm:after:w-full sm:after:h-0.5 sm:after:bg-blue-500 sm:after:bottom-0 sm:after:left-0' : 'text-gray-600' }} text-center sm:text-left py-2"
+                 <a class="font-medium relative hover:text-blue-500 dark:hover:text-blue-500 {{ request()->routeIs(['blog.index', 'blog.show']) ? 'text-blue-500 sm:after:absolute sm:after:w-full sm:after:h-0.5 sm:after:bg-blue-500 sm:after:bottom-0 sm:after:left-0' : 'text-gray-600' }} text-center sm:text-left py-2"
                     href="{{ route('blog.index') }}">Blog</a>
                  
-                 <a class="font-medium relative hover:text-blue-500 dark:hover:text-blue-500 {{ request()->routeIs('katalog') ? 'text-blue-500 sm:after:absolute sm:after:w-full sm:after:h-0.5 sm:after:bg-blue-500 sm:after:bottom-0 sm:after:left-0' : 'text-gray-600' }} text-center sm:text-left py-2"
+                 <a class="font-medium relative hover:text-blue-500 dark:hover:text-blue-500 {{ request()->routeIs(['katalog', 'catalogs.show']) ? 'text-blue-500 sm:after:absolute sm:after:w-full sm:after:h-0.5 sm:after:bg-blue-500 sm:after:bottom-0 sm:after:left-0' : 'text-gray-600' }} text-center sm:text-left py-2"
                     href="{{ route('katalog') }}">Katalog</a>
                  
                  <a class="font-medium relative hover:text-blue-500 dark:hover:text-blue-500 {{ request()->routeIs('contact') ? 'text-blue-500 sm:after:absolute sm:after:w-full sm:after:h-0.5 sm:after:bg-blue-500 sm:after:bottom-0 sm:after:left-0' : 'text-gray-600' }} text-center sm:text-left py-2"
