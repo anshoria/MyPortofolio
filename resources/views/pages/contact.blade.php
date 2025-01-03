@@ -4,6 +4,23 @@
 
 @extends('layouts.app')
 
+@push('meta-seo')
+<meta name="description" content="Have a project in mind? I'm always excited to collaborate on new ideas and opportunities.">
+<meta name="keywords" content="contact anshoria, jasa pembuatan web, kontak anshori">
+
+{{-- meta social --}}
+@php
+    $settings = \App\Models\GeneralSettings::first();
+@endphp
+
+<meta property="og:title" content="Contact - anshoria">
+<meta property="og:url" content="{{ url()->current() }}">
+<meta property="og:site_name" content="anshoria">
+<meta property="og:description" content="Have a project in mind? I'm always excited to collaborate on new ideas and opportunities.">
+<meta property="og:image" content="{{ asset('storage/' . $settings->logo) }}">
+
+@endpush
+
 @section('title', 'Contact')
 @section('content')
     <!-- Contact Us -->

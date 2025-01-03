@@ -1,5 +1,17 @@
 @extends('layouts.app')
 
+@push('meta-seo')
+<meta name="description" content="{{ Str::limit(strip_tags($project->description), 150, '...baca selengkapnya') }}">
+<meta name="keywords" content="{{ $project->category }}, project portfolio anshoria, {{ $project->title }}">
+
+{{-- meta social --}}
+<meta property="og:title" content="{{ $project->title }}">
+<meta property="og:url" content="{{ url()->current() }}">
+<meta property="og:site_name" content="anshoria">
+<meta property="og:description" content="{{ Str::limit(strip_tags($project->description), 150, '...baca selengkapnya') }}">
+<meta property="og:image" content="{{ asset('storage/' . $project->image) }}">
+
+@endpush
 @section('title', $project->title)
 @section('content')
     <!-- Project Article -->

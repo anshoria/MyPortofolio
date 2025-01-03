@@ -1,5 +1,22 @@
 @extends('layouts.app')
 
+@push('meta-seo')
+<meta name="description" content="Discover my latest work and creative endeavors">
+<meta name="keywords" content="project anshoria, projek anshori, portofolio anshori">
+
+{{-- meta social --}}
+@php
+    $settings = \App\Models\GeneralSettings::first();
+@endphp
+
+<meta property="og:title" content="Projects - anshoria">
+<meta property="og:url" content="{{ url()->current() }}">
+<meta property="og:site_name" content="anshoria">
+<meta property="og:description" content="Discover my latest work and creative endeavors">
+<meta property="og:image" content="{{ asset('storage/' . $settings->logo) }}">
+
+@endpush
+
 @section('title', 'Projects')
 @section('content')
     <div class="min-h-[calc(100vh-210px)] relative ">

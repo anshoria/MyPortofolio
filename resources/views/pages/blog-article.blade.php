@@ -1,5 +1,19 @@
 @extends('layouts.app')
 
+@push('meta-seo')
+<meta name="description" content="{{ Str::limit(strip_tags($blog->content), 150, '...baca selengkapnya') }}">
+<meta name="keywords" content="artikel anshoria, article anshoria, {{ $blog->title }}">
+
+{{-- meta social --}}
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ $blog->title }}">
+<meta property="og:url" content="{{ url()->current() }}">
+<meta property="og:site_name" content="anshoria">
+<meta property="og:description" content="{{ Str::limit(strip_tags($blog->content), 150, '...baca selengkapnya') }}">
+<meta property="og:image" content="{{ asset('storage/' . $blog->cover_img) }}">
+
+@endpush
+
 @section('title', 'Article')
 @section('content')
     <!-- Blog Article -->

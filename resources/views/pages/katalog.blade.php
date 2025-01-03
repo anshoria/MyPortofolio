@@ -1,5 +1,21 @@
     @extends('layouts.app')
 
+    @push('meta-seo')
+        <meta name="description" content="Butuh website dinamis yang bisa diupdate kapan saja? Dapatkan template website profesional yang mudah dikelola. Cocok untuk mengembangkan bisnis Anda ke dunia digital! 🚀">
+        <meta name="keywords" content="katalog anshoria, template website anshoria, template web">
+
+        {{-- meta social --}}
+        @php
+            $settings = \App\Models\GeneralSettings::first();
+        @endphp
+
+        <meta property="og:title" content="Katalog - anshoria">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:site_name" content="anshoria">
+        <meta property="og:description" content="Butuh website dinamis yang bisa diupdate kapan saja? Dapatkan template website profesional yang mudah dikelola. Cocok untuk mengembangkan bisnis Anda ke dunia digital! 🚀">
+        <meta property="og:image" content="{{ asset('storage/' . $settings->logo) }}">
+    @endpush
+
     @section('title', 'Katalog')
 
     @section('content')
@@ -27,8 +43,7 @@
                         <!-- Card -->
                         <div
                             class="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl hover:shadow-md transition-all duration-300 dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
-                            <div
-                                class="h-52 flex flex-col justify-center items-center rounded-t-xl">
+                            <div class="h-52 flex flex-col justify-center items-center rounded-t-xl">
                                 <div class="relative w-full h-full overflow-hidden rounded-t-xl">
                                     <!-- Preload Skeleton -->
                                     <div class="absolute inset-0 animate-pulse bg-gray-200 dark:bg-gray-700"

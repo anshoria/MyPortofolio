@@ -2,6 +2,20 @@
     $settings = \App\Models\GeneralSettings::first();
 @endphp
 
+@push('meta-seo')
+<meta name="description" content="{{ Str::limit($about->description, 150, '...baca selengkapnya') }}">
+<meta name="keywords" content="about anshoria, about anshori, anshori">
+
+{{-- meta social --}}
+
+<meta property="og:title" content="About - anshoria">
+<meta property="og:url" content="{{ url()->current() }}">
+<meta property="og:site_name" content="anshoria">
+<meta property="og:description" content="{{ Str::limit($about->description, 150, '...baca selengkapnya') }}">
+<meta property="og:image" content="{{ asset('storage/' . $about->image) }}">
+
+@endpush
+
 @extends('layouts.app')
 
 @section('title', 'About')

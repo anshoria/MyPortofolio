@@ -1,6 +1,23 @@
 @extends('layouts.app')
 
-@section('title', 'Home')
+@push('meta-seo')
+<meta name="description" content="Hi, Saya adalah fullstack developer. Saya menyediakan jasa pembuatan website dan juga menyediakan template website yang siap pakai.">
+<meta name="keywords" content="anshoria, pembuatan website, template website">
+
+{{-- meta social --}}
+@php
+    $settings = \App\Models\GeneralSettings::first();
+@endphp
+
+<meta property="og:title" content="anshoria">
+<meta property="og:url" content="{{ url()->current() }}">
+<meta property="og:site_name" content="anshoria">
+<meta property="og:description" content="Hi, Saya adalah fullstack developer. Saya menyediakan jasa pembuatan website dan juga menyediakan template website yang siap pakai.">
+<meta property="og:image" content="{{ asset('storage/' . $settings->logo) }}">
+
+@endpush
+
+@section('title', 'Hi, welcome to my portofolio website!')
 
 @section('content')
     <!-- Hero Section -->
