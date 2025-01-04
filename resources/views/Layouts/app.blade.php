@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="VmiPGefkZ-E9tyqSULa9dAFB-8-oAiNnu1dqr0MVk3c" />
+    
     @stack('meta-seo')
 
     <title>@yield('title') | anshoria</title>
