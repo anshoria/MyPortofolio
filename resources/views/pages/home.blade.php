@@ -3,6 +3,7 @@
 @push('meta-seo')
 <meta name="description" content="Hi, Saya adalah fullstack developer. Saya menyediakan jasa pembuatan website dan juga menyediakan template website yang siap pakai.">
 <meta name="keywords" content="anshoria, pembuatan website, template website">
+<meta name="google-site-verification" content="VmiPGefkZ-E9tyqSULa9dAFB-8-oAiNnu1dqr0MVk3c" />
 
 {{-- meta social --}}
 @php
