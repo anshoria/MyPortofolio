@@ -2,7 +2,7 @@
 
 @push('meta-seo')
 <meta name="description" content="{{ Str::limit(strip_tags($catalog->description), 150, '...baca selengkapnya') }}">
-<meta name="keywords" content="artikel anshoria, article anshoria, {{ $blog->title }}">
+<meta name="keywords" content="artikel anshoria, article anshoria, {{ $catalog->title }}">
 
 {{-- meta social --}}
 <meta property="og:title" content="{{ $catalog->title }}">

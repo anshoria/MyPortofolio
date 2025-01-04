@@ -10,6 +10,7 @@ use App\Http\Controllers\TypingTestController;
 use App\Http\Controllers\Api\TypingTestApiController;
 use App\Http\Controllers\KatalogController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\SitemapController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
@@ -37,3 +38,6 @@ Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 Route::get('/typing-test', [TypingTestController::class, 'show'])->name('typingtest');
 Route::get('/api/typing-scores', [TypingTestApiController::class, 'index']);
 Route::post('/api/typing-scores', [TypingTestApiController::class, 'store']);
+
+
+Route::get('/sitemap', [SitemapController::class, 'index']);
