@@ -11,13 +11,17 @@ class ProjectController extends Controller
     protected $seconds = 86400;
     public function index(Request $request)
     {
+        $currentPage = $request->get('page', 1); // Get current page
         $categories = Cache::remember('project_categories', $this->seconds, function () {
             return Projects::distinct('category')->pluck('category')->filter();
         });
 
         $selectedCategory = $request->category ?? 'all';
 
-        $projects = Cache::remember('projects_' . $selectedCategory, $this->seconds, function () use ($selectedCategory) {
+        // Include page number in cache key
+        $cacheKey = "projects_{$selectedCategory}_page_{$currentPage}";
+        
+        $projects = Cache::remember($cacheKey, $this->seconds, function () use ($selectedCategory) {
             $query = Projects::latest();
 
             if ($selectedCategory !== 'all') {
