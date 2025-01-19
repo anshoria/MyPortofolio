@@ -74,8 +74,7 @@
                 @foreach ($projects as $project)
                     <!-- Card -->
                     <a href="{{ route('projects.show', $project) }}"
-                        class="group block rounded-xl overflow-hidden focus:outline-none sm:hover:bg-gray-100 sm:dark:hover:bg-white/10 sm:dark:focus:bg-white/10"
-                        data-aos="fade-up" data-aos-delay="100">
+                        class="group block rounded-xl overflow-hidden focus:outline-none sm:hover:bg-gray-100 sm:dark:hover:bg-white/10 sm:dark:focus:bg-white/10">
                         <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
                             <div class="shrink-0 relative rounded-xl overflow-hidden w-full sm:w-56 h-44">
                                 <!-- Preload Skeleton -->
