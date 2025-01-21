@@ -20,5 +20,9 @@ class Projects extends Model
         'final_price',
         'is_cta',
         'catalog_img',
+        'tech_stack',
+    ];
+    protected $casts = [
+        'tech_stack' => 'array'
     ];
 }

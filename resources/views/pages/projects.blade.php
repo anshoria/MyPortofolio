@@ -1,20 +1,19 @@
 @extends('layouts.app')
 
 @push('meta-seo')
-<meta name="description" content="Discover my latest work and creative endeavors">
-<meta name="keywords" content="project anshoria, projek anshori, portofolio anshori">
+    <meta name="description" content="Discover my latest work and creative endeavors">
+    <meta name="keywords" content="project anshoria, projek anshori, portofolio anshori">
 
-{{-- meta social --}}
-@php
-    $settings = \App\Models\GeneralSettings::first();
-@endphp
+    {{-- meta social --}}
+    @php
+        $settings = \App\Models\GeneralSettings::first();
+    @endphp
 
-<meta property="og:title" content="Projects - anshoria">
-<meta property="og:url" content="{{ url()->current() }}">
-<meta property="og:site_name" content="anshoria">
-<meta property="og:description" content="Discover my latest work and creative endeavors">
-<meta property="og:image" content="{{ asset('storage/' . $settings->logo) }}">
-
+    <meta property="og:title" content="Projects - anshoria">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:site_name" content="anshoria">
+    <meta property="og:description" content="Discover my latest work and creative endeavors">
+    <meta property="og:image" content="{{ asset('storage/' . $settings->logo) }}">
 @endpush
 
 @section('title', 'Projects')
@@ -23,7 +22,7 @@
         <!-- Category Navigation -->
         <div class="max-w-[85rem] px-3.5 sm:px-6 lg:px-8 mx-auto mt-6">
             <div class="relative">
-                <div id="category-tabs" class="flex overflow-x-auto gap-2 hide-scrollbar">
+                <div id="category-tabs" class="flex overflow-x-auto gap-2 hide-scrollbar scrollbar-hide">
                     <a href="{{ route('projects', ['category' => 'all']) }}"
                         class="category-tab relative inline-flex items-center whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 
                 {{ $selectedCategory === 'all' ? 'bg-blue-600 text-white active' : 'bg-gray-100 text-gray-800 hover:bg-blue-600 hover:text-white dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-blue-600' }}"
@@ -99,9 +98,16 @@
                                     class="text-xl font-semibold text-gray-800 group-hover:text-gray-600 dark:text-neutral-300 dark:group-hover:text-white">
                                     {{ $project->title }}
                                 </h3>
-                                <p class="mt-3 text-gray-600 dark:text-neutral-400 line-clamp-3">
+                                <p class="mt-3 text-gray-600 dark:text-neutral-400 line-clamp-3 sm:line-clamp-2">
                                     {{ strip_tags($project->description) }}
                                 </p>
+                                <div class="flex flex-wrap items-center mt-3 gap-1">
+                                    @foreach ($project->tech_stack as $tech)
+                                        <span
+                                            class="inline-flex items-center gap-x-1.5 py-1 px-3 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-500">{{ $tech }}</span>
+                                    @endforeach
+
+                                </div>
                                 <p
                                     class="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold text-blue-600 dark:text-neutral-200">
                                     View details

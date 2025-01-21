@@ -23,6 +23,7 @@ return new class extends Migration
             $table->boolean('is_catalog')->default(false); //penambahan
             $table->integer('price')->nullable(); //penambahan
             $table->string('catalog_img')->nullable(); //penambahan
+            $table->string('tech_stack'); //penambahan
             $table->timestamps();
         });
     }

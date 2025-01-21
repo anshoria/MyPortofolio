@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @push('meta-seo')
-<meta name="description" content="{{ Str::limit(strip_tags($project->description), 150, '...baca selengkapnya') }}">
-<meta name="keywords" content="{{ $project->category }}, project portfolio anshoria, {{ $project->title }}">
+    <meta name="description" content="{{ Str::limit(strip_tags($project->description), 150, '...baca selengkapnya') }}">
+    <meta name="keywords" content="{{ $project->category }}, project portfolio anshoria, {{ $project->title }}">
 
-{{-- meta social --}}
-<meta property="og:title" content="{{ $project->title }}">
-<meta property="og:url" content="{{ url()->current() }}">
-<meta property="og:site_name" content="anshoria">
-<meta property="og:description" content="{{ Str::limit(strip_tags($project->description), 150, '...baca selengkapnya') }}">
-<meta property="og:image" content="{{ asset('storage/' . $project->image) }}">
-
+    {{-- meta social --}}
+    <meta property="og:title" content="{{ $project->title }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:site_name" content="anshoria">
+    <meta property="og:description"
+        content="{{ Str::limit(strip_tags($project->description), 150, '...baca selengkapnya') }}">
+    <meta property="og:image" content="{{ asset('storage/' . $project->image) }}">
 @endpush
 @section('title', $project->title)
 @section('content')
@@ -43,6 +43,13 @@
                             <p class="text-xs sm:text-sm text-gray-800 dark:text-neutral-200">
                                 {{ $project->year }}
                             </p>
+
+                            <div class="mx-1">
+                                @foreach ($project->tech_stack as $tech)
+                                    <span
+                                        class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-500">{{ $tech }}</span>
+                                @endforeach
+                            </div>
                         </div>
 
                         <!-- Main Project Image -->
@@ -160,8 +167,8 @@
                                     <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->url()) }}&text={{ urlencode($project->title) }}"
                                         target="_blank"
                                         class="w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-lg font-medium bg-gray-50 text-gray-700 shadow-sm align-middle hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800">
-                                        <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="currentColor">
+                                        <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="currentColor">
                                             <path
                                                 d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                                         </svg>

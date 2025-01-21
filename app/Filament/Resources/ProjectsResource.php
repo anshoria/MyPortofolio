@@ -15,6 +15,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Support\RawJs;
 use Filament\Tables\Columns\TextColumn;
@@ -56,6 +57,7 @@ class ProjectsResource extends Resource
             'url',
             'year',
             'price',
+            'tech_stack',
         ];
     }
 
@@ -86,6 +88,24 @@ class ProjectsResource extends Resource
                                 'Blog atau Media Informasi' => 'Blog atau Media Informasi',
                             ])
                             ->searchable(),
+                        TagsInput::make('tech_stack')
+                            ->placeholder('Add technologies')
+                            ->suggestions([
+                                'Tailwindcss',
+                                'Bootstrap',
+                                'Alpinejs',
+                                'Laravel',
+                                'Livewire',
+                                'Vue.js',
+                                'React',
+                                'Filament',
+                                'MySQL',
+                                'PostgreSQL',
+                                'Docker',
+                                'AWS',
+                                'Redis',
+                            ])
+                            ->required(),
 
                         TextInput::make('year')
                             ->required()

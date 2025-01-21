@@ -59,10 +59,7 @@
 
                             <div class="p-4 md:p-6 flex-grow">
                                 <div class="flex justify-between items-center mb-3">
-                                    <span
-                                        class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-500">
-                                        {{ $catalog->category }}
-                                    </span>
+                                    <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-blue-600 text-white dark:bg-blue-500">{{ $catalog->category }}</span>
                                     <span
                                         class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800/30 dark:text-gray-400">
                                         {{ $catalog->year }}
@@ -72,10 +69,17 @@
                                     class="text-xl font-semibold text-gray-800 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-500 transition-colors">
                                     {{ $catalog->title }}
                                 </h3>
-                                <p class="mt-3 text-gray-600 dark:text-gray-400">
-                                    {!! Str::limit(strip_tags($catalog->description), 120) !!}
+                                <p class="mt-3 text-gray-600 dark:text-gray-400 line-clamp-2">
+                                    {!! strip_tags($catalog->description) !!}
                                 </p>
+                                <div class="flex items-center gap-1 mt-2">
+                                    @foreach ($catalog->tech_stack as $tech)
+                                    <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-500">{{ $tech }}</span>
+                                    @endforeach
+
+                                </div>
                             </div>
+
 
                             <div
                                 class="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 dark:border-gray-700 dark:divide-gray-700">
