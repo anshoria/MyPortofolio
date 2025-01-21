@@ -33,7 +33,7 @@
 
                         <h2 class="text-3xl font-bold lg:text-5xl dark:text-white">{{ $project->title }}</h2>
 
-                        <div class="flex items-center gap-x-5">
+                        <div class="flex flex-wrap items-center gap-3">
                             @if ($project->category)
                                 <a class="inline-flex items-center gap-1.5 py-1 px-3 sm:py-2 sm:px-4 rounded-full text-xs sm:text-sm bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-neutral-800 dark:text-neutral-200"
                                     href="#">
@@ -44,10 +44,9 @@
                                 {{ $project->year }}
                             </p>
 
-                            <div class="mx-1">
+                            <div>
                                 @foreach ($project->tech_stack as $tech)
-                                    <span
-                                        class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-500">{{ $tech }}</span>
+                                    <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 mb-1 sm:mb-0 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-500">{{ $tech }}</span>
                                 @endforeach
                             </div>
                         </div>

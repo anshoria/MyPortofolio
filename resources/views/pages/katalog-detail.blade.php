@@ -89,7 +89,7 @@
                                 {{ $catalog->title }}
                             </h1>
                             <!-- Badges -->
-                            <div class="flex flex-wrap gap-3">
+                            <div class="flex flex-wrap items-center gap-3">
                                 <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-blue-600 text-white dark:bg-blue-500">{{ $catalog->category }}</span>
                                 <span
                                     class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800/30 dark:text-gray-400">
@@ -97,7 +97,7 @@
                                 </span>
                                 <div>
                                     @foreach ($catalog->tech_stack as $tech)
-                                    <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-500">{{ $tech }}</span>
+                                    <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-500 mb-1 sm:mb-0">{{ $tech }}</span>
                                     @endforeach
                                 </div>
                             </div>
