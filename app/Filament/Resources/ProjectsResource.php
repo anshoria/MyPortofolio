@@ -76,18 +76,19 @@ class ProjectsResource extends Resource
                             ->live(onBlur: true)
                             ->autofocus(),
 
-                        Select::make('category')
+                        TextInput::make('category')
                             ->required()
-                            ->options([
-                                'Company Profile' => 'Company Profile',
-                                'Portal Layanan' => 'Portal Layanan',
-                                'Landing Page' => 'Landing Page',
-                                'Sistem Penjualan' => 'Sistem Penjualan',
-                                'Sistem Booking atau Reservasi' => 'Sistem Booking atau Reservasi',
-                                'Game' => 'Game',
-                                'Blog atau Media Informasi' => 'Blog atau Media Informasi',
-                            ])
-                            ->searchable(),
+                            ->placeholder('example: Landing Page')
+                            ->datalist([
+                                'Company Profile',
+                                'Portal Layanan',
+                                'Landing Page',
+                                'Sistem Penjualan',
+                                'Sistem Booking atau Reservasi',
+                                'Game',
+                                'Blog atau Media Informasi',
+                                'Data Visualization',
+                            ]),
                         TagsInput::make('tech_stack')
                             ->placeholder('Add technologies')
                             ->suggestions([
@@ -127,7 +128,7 @@ class ProjectsResource extends Resource
                             ->mask(RawJs::make('$money($input)'))
                             ->stripCharacters(','),
 
-                            TextInput::make('discount_percentage')
+                        TextInput::make('discount_percentage')
                             ->label('Discount (%)')
                             ->placeholder('Enter discount percentage')
                             ->numeric()
@@ -143,7 +144,7 @@ class ProjectsResource extends Resource
                                     $set('final_price', number_format($finalPrice, 0, '', ''));
                                 }
                             }),
-                        
+
                         TextInput::make('final_price')
                             ->label('Final Price')
                             ->disabled()
